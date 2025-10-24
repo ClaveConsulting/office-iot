@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+pwd
 # 1. Pull latest main of this repo
 git pull origin main
 # 2. Read latest commit hash
