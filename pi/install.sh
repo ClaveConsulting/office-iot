@@ -13,6 +13,7 @@ Description=Run pull.sh
 
 [Service]
 Type=oneshot
+WorkingDirectory=$SCRIPT_DIR
 ExecStart=$PULL_SCRIPT_PATH
 EOF
 
