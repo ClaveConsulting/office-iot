@@ -40,3 +40,4 @@ systemctl --user enable --now "$TIMER_FILE"
 
 # install docker
 curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
