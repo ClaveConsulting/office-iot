@@ -4,7 +4,7 @@ services:
         image: ghcr.io/koenkk/zigbee2mqtt
         restart: unless-stopped
         volumes:
-            - ./data:/app/data
+            - $HOME/office-iot-output/data:/app/data
             - /run/udev:/run/udev:ro
         ports:
             - 8080:8080
