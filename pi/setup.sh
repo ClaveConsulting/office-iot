@@ -12,7 +12,3 @@ docker run \
    -e TZ=Europe/Amsterdam \
    -d \
    ghcr.io/koenkk/zigbee2mqtt
-
-TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
-OUTPUT_DIR="$HOME/office-iot-output"
-echo "setup ran at $TIMESTAMP" >> "$OUTPUT_DIR/output.txt"

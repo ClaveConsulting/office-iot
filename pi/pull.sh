@@ -4,6 +4,10 @@ set -xe
 pwd
 OUTPUT_DIR="$HOME/office-iot-output"
 mkdir -p $OUTPUT_DIR
+
+# Create a filename friendly timestamp
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+
 # 1. Pull latest main of this repo
 git pull origin main
 # 2. Read latest commit hash
@@ -18,6 +22,8 @@ fi
 # 4. If they differ, run setup.sh and write latest commit hash to file
 if [ "$LATEST_COMMIT_HASH" != "$STORED_COMMIT_HASH" ]; then
     # Run setup.sh but ignore errors
-    (./setup.sh || true)
+    echo "running setup.sh"
+    OUTPUT_FILE="$OUTPUT_DIR/output.$TIMESTAMP.log"
+    (./setup.sh || true) > $OUTPUT_FILE
     echo "$LATEST_COMMIT_HASH" > "$STORED_COMMIT_HASH_FILE"
 fi
