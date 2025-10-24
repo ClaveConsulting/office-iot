@@ -24,6 +24,6 @@ if [ "$LATEST_COMMIT_HASH" != "$STORED_COMMIT_HASH" ]; then
     # Run setup.sh but ignore errors
     echo "running setup.sh"
     OUTPUT_FILE="$OUTPUT_DIR/output.$TIMESTAMP.log"
-    (./setup.sh || true) > $OUTPUT_FILE
+    (./setup.sh > $OUTPUT_FILE || true)
     echo "$LATEST_COMMIT_HASH" > "$STORED_COMMIT_HASH_FILE"
 fi
