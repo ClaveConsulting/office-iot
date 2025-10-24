@@ -39,5 +39,4 @@ systemctl --user enable --now "$SERVICE_FILE"
 systemctl --user enable --now "$TIMER_FILE"
 
 # install docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+curl -fsSL https://get.docker.com | sh
