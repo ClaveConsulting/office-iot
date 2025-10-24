@@ -27,3 +27,6 @@ Unit=office-iot-pull.service
 [Install]
 WantedBy=timers.target
 EOF
+
+chmod +x "$SERVICE_FILE"
+chmod +x "$TIMER_FILE"
