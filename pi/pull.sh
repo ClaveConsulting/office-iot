@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -xe
 
 pwd
 # 1. Pull latest main of this repo

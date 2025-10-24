@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -xe
 
 # 1. Get absolute path of pull.sh in the same directory of this file
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -24,7 +25,7 @@ cat <<EOF > "$TIMER_FILE"
 Description=Run office-iot-pull.service every minute
 
 [Timer]
-OnUnitActiveSec=1min
+OnCalendar=*-*-* *:*:00
 Unit=office-iot-pull.service
 
 [Install]
