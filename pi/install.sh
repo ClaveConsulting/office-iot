@@ -4,8 +4,10 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PULL_SCRIPT_PATH="$SCRIPT_DIR/pull.sh"
 # 2. Set up a job that runs pull.sh every minute using systemd
-SERVICE_FILE="/etc/systemd/system/office-iot-pull.service"
-TIMER_FILE="/etc/systemd/system/office-iot-pull.timer"
+JOB_DIR="$HOME/.config/systemd/user"
+mkdir -p "$JOB_DIR"
+SERVICE_FILE="$JOB_DIR/office-iot-pull.service"
+TIMER_FILE="$JOB_DIR/office-iot-pull.timer"
 
 cat <<EOF > "$SERVICE_FILE"
 [Unit]
@@ -31,3 +33,6 @@ EOF
 
 chmod +x "$SERVICE_FILE"
 chmod +x "$TIMER_FILE"
+
+systemctl --user enable --now "$SERVICE_FILE"
+systemctl --user enable --now "$TIMER_FILE"
