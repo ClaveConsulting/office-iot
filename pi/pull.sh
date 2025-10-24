@@ -17,6 +17,7 @@ else
 fi
 # 4. If they differ, run setup.sh and write latest commit hash to file
 if [ "$LATEST_COMMIT_HASH" != "$STORED_COMMIT_HASH" ]; then
-    ./setup.sh
+    # Run setup.sh but ignore errors
+    (./setup.sh || true)
     echo "$LATEST_COMMIT_HASH" > "$STORED_COMMIT_HASH_FILE"
 fi
