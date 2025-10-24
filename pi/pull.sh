@@ -2,12 +2,14 @@
 set -xe
 
 pwd
+OUTPUT_DIR="$HOME/office-iot-output"
+mkdir -p $OUTPUT_DIR
 # 1. Pull latest main of this repo
 git pull origin main
 # 2. Read latest commit hash
 LATEST_COMMIT_HASH=$(git rev-parse HEAD)
 # 3. Read commit hash that has been setup from a file
-STORED_COMMIT_HASH_FILE=".setup_commit_hash"
+STORED_COMMIT_HASH_FILE="$OUTPUT_DIR/.setup_commit_hash"
 if [ -f "$STORED_COMMIT_HASH_FILE" ]; then
     STORED_COMMIT_HASH=$(cat "$STORED_COMMIT_HASH_FILE")
 else
