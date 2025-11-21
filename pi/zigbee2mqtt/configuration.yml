@@ -1,0 +1,8 @@
+homeassistant: false
+permit_join: false
+mqtt:
+  server: mqtt://localhost:1883
+serial:
+  port: /dev/ttyACM0
+advanced:
+  log_level: info
