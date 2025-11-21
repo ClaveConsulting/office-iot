@@ -2,7 +2,7 @@ version: 4
 permit_join: true
 mqtt:
   base_topic: zigbee2mqtt
-  server: mqtt://localhost
+  server: mqtt://mosquitto:1883
 serial:
   port: /dev/ttyUSB0
   adapter: ember
