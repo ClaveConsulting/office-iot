@@ -1,7 +1,7 @@
 services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: ghcr.io/koenkk/zigbee2mqtt
+    image: ghcr.io/koenkk/zigbee2mqtt:latest-dev
     restart: unless-stopped
     volumes:
       - ${HOME}/office-iot-output/zigbee2mqtt/data:/app/data
