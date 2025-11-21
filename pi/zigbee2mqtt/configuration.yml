@@ -5,6 +5,7 @@ mqtt:
   server: mqtt://localhost:1883
 serial:
   port: /dev/ttyACM0
+  adapter: ember
 advanced:
   channel: 11
   network_key: GENERATE
