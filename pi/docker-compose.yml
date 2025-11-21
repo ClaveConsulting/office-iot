@@ -6,7 +6,7 @@ services:
         volumes:
             - ${HOME}/office-iot-output/data:/app/data
             - /run/udev:/run/udev:ro
-            - ./zigbee2mqtt/configuration.yml:/app/data/configuration.yml:ro
+            - ./zigbee2mqtt/configuration.yml:/app/data/configuration.yml
         ports:
             - 8080:8080
         environment:
