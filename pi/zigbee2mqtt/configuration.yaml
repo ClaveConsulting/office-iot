@@ -5,6 +5,8 @@ mqtt:
 serial:
   port: /dev/ttyUSB0
   adapter: ember
+  baudrate: 115200
+  rtscts: true
 advanced:
   channel: 11
   network_key: GENERATE
