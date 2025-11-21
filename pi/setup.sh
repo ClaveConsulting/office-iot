@@ -5,6 +5,7 @@ mkdir -p $HOME/office-iot-output/zigbee2mqtt/data
 mkdir -p $HOME/office-iot-output/eclipse-mosquitto/data
 mkdir -p $HOME/office-iot-output/eclipse-mosquitto/config
 mkdir -p $HOME/office-iot-output/eclipse-mosquitto/log
+chmod -R u+w $HOME/office-iot-output/zigbee2mqtt/data
 cp ./zigbee2mqtt/* $HOME/office-iot-output/zigbee2mqtt/data
 chmod -R u+w $HOME/office-iot-output/eclipse-mosquitto/config
 cp ./eclipse-mosquitto/config/* $HOME/office-iot-output/eclipse-mosquitto/config
