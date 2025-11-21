@@ -18,3 +18,8 @@ frontend:
   enabled: true
 homeassistant:
   enabled: false
+devices:
+  '0x781c9dfffe07c6b2':
+    friendly_name: 'Inspelning 1'
+  '0xc02cedfffe7daa52':
+    friendly_name: 'Inspelning 2'
