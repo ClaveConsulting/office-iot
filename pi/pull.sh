@@ -19,11 +19,15 @@ if [ -f "$STORED_COMMIT_HASH_FILE" ]; then
 else
     STORED_COMMIT_HASH=""
 fi
-# 4. If they differ, run setup.sh and write latest commit hash to file
+# 4. If they differ, run setup.sh and write latest commit hash to file only if setup succeeds
 if [ "$LATEST_COMMIT_HASH" != "$STORED_COMMIT_HASH" ]; then
-    # Run setup.sh but ignore errors
+    # Run setup.sh and only store commit hash if it succeeds
     echo "running setup.sh"
     OUTPUT_FILE="$OUTPUT_DIR/output.$TIMESTAMP.log"
-    (./setup.sh || true) > $OUTPUT_FILE 2>&1
-    echo "$LATEST_COMMIT_HASH" > "$STORED_COMMIT_HASH_FILE"
+    if ./setup.sh > $OUTPUT_FILE 2>&1; then
+        echo "$LATEST_COMMIT_HASH" > "$STORED_COMMIT_HASH_FILE"
+        echo "setup.sh succeeded, stored commit hash"
+    else
+        echo "setup.sh failed, commit hash not stored"
+    fi
 fi
