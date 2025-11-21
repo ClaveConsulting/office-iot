@@ -1,5 +1,4 @@
 version: 4
-permit_join: false
 mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://localhost:1883
