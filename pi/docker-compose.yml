@@ -1,15 +1,27 @@
 services:
-    zigbee2mqtt:
-        container_name: zigbee2mqtt
-        image: ghcr.io/koenkk/zigbee2mqtt
-        restart: unless-stopped
-        volumes:
-            - ${HOME}/office-iot-output/data:/app/data
-            - /run/udev:/run/udev:ro
-            - ./zigbee2mqtt/configuration.yml:/app/data/configuration.yml
-        ports:
-            - 8080:8080
-        environment:
-            - TZ=Europe/Berlin
-        devices:
-            - /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0:/dev/ttyACM0
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: ghcr.io/koenkk/zigbee2mqtt
+    restart: unless-stopped
+    volumes:
+      - ${HOME}/office-iot-output/zigbee2mqtt/data:/app/data
+      - /run/udev:/run/udev:ro
+      - ./zigbee2mqtt/configuration.yml:/app/data/configuration.yml
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Europe/Berlin
+    devices:
+      - /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0:/dev/ttyACM0
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    volumes:
+      - ${HOME}/office-iot-output/eclipse-mosquitto/config:/mosquitto/config
+      - ${HOME}/office-iot-output/eclipse-mosquitto/data:/mosquitto/data
+      - ${HOME}/office-iot-output/eclipse-mosquitto/log:/mosquitto/log
+    ports:
+      - 1883:1883
+    environment:
+      - TZ=Europe/Berlin

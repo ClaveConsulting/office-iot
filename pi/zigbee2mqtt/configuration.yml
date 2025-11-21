@@ -1,8 +1,16 @@
-homeassistant: false
+version: 4
 permit_join: false
 mqtt:
+  base_topic: zigbee2mqtt
   server: mqtt://localhost:1883
 serial:
   port: /dev/ttyACM0
 advanced:
-  log_level: info
+  channel: 11
+  network_key: GENERATE
+  pan_id: GENERATE
+  ext_pan_id: GENERATE
+frontend:
+  enabled: true
+homeassistant:
+  enabled: false
