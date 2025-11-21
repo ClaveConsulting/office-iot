@@ -6,6 +6,7 @@ mqtt:
 serial:
   port: /dev/ttyACM0
   adapter: ember
+  rtscts: true
 advanced:
   channel: 11
   network_key: GENERATE
